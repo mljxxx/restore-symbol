@@ -2,10 +2,6 @@
 
 A reverse engineering tool to restore stripped symbol table for iOS app.
 
-Example: restore symbol for Alipay
-![](https://raw.githubusercontent.com/tobefuturer/restore-symbol/master/picture/after_restore.jpeg)
-
-
 ## How to use
 
 ### Just restore symbol of oc method
@@ -14,10 +10,11 @@ Example: restore symbol for Alipay
 
 ```
 
-git clone --recursive https://github.com/tobefuturer/restore-symbol.git
-cd restore-symbol && make
+git clone git@github.com:mljxxx/restore-symbol.git
+cd restore-symbol
+git clone git@github.com:mljxxx/class-dump.git
+make
 ./restore-symbol
-
 ```
 
 - 2. Restore symbol using this command. It will output a new mach-o file with symbol.
@@ -48,11 +45,7 @@ ios-deploy -d -b xxxx.app
 
 ### Restore symbol of oc block
 
-- 1. Search block symbol in IDA to get json symbol file, using script([`search_oc_block/ida_search_block.py`](https://github.com/tobefuturer/restore-symbol/blob/master/search_oc_block/ida_search_block.py)) .
-
-![](http://blog.imjun.net/posts/restore-symbol-of-iOS-app/ida_result_position.png)
-
-![](http://blog.imjun.net/posts/restore-symbol-of-iOS-app/ida_result_sample.jpg)
+- 1. Search block symbol in IDA to get json symbol file, using script([`search_oc_block/ida_search_block.py`](https://github.com/mljxxx/restore-symbol/blob/main/search_oc_block/ida_search_block.py)) .
 
 - 2. Use command line tool(restore-symbol) to inject oc method symbols and block symbols into mach o file.
 
